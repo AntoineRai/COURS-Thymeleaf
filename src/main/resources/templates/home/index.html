@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/override.css}">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body class="d-flex flex-row min-vh-100">
+<div th:replace="fragments/sidebar :: sidebar"></div>
+<div class="container d-flex justify-content-center align-items-center">
+    <div class="border border-dark m-3 p-3">
+        <h1><p th:text="${employees}">NBR</p>employées</h1>
+    </div>
+    <div class="border border-dark m-3 p-3">
+        <h1><p th:text="${candidates}">NBR</p>candidats</h1>
+    </div>
+</div>
+</body>
+</html>
