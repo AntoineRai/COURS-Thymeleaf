@@ -6,14 +6,33 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body class="d-flex flex-row min-vh-100">
-<div th:replace="fragments/sidebar :: sidebar"></div>
-<div class="container d-flex justify-content-center align-items-center">
-    <div class="border border-dark m-3 p-3">
-        <h1><p th:text="${employees}">NBR</p>employées</h1>
-    </div>
-    <div class="border border-dark m-3 p-3">
-        <h1><p th:text="${candidates}">NBR</p>candidats</h1>
+<style>
+    .flex-container {
+        display: flex;
+        height: 100vh;
+    }
+
+    .sidebar {
+        flex: 0 0 280px;
+    }
+
+    .content {
+        flex-grow: 1;
+        padding: 0 0 0 2%;
+    }
+</style>
+<body>
+<div class="flex-container">
+    <div th:replace="fragments/sidebar :: sidebar" class="sidebar"></div>
+    <div class="content">
+        <div class="container d-flex justify-content-center align-items-center">
+            <div class="border border-dark m-3 p-3">
+                <h1><p th:text="${employees}">NBR</p>employées</h1>
+            </div>
+            <div class="border border-dark m-3 p-3">
+                <h1><p th:text="${candidates}">NBR</p>candidats</h1>
+            </div>
+        </div>
     </div>
 </div>
 </body>
