@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/override.css}">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    .flex-container {
+        display: flex;
+        height: 100vh;
+    }
+
+    .sidebar {
+        flex: 0 0 280px;
+    }
+
+    .content {
+        flex-grow: 1;
+        padding: 0 0 0 2%;
+    }
+</style>
+<body>
+<div class="flex-container">
+    <div th:replace="fragments/sidebar :: sidebar" class="sidebar"></div>
+    <div class="content">
+        <h1 class="mt-3 m-3">Détails de l'employé</h1>
+        <div class="row m-3">
+            <a th:href="@{${employee.id} + '/update'}">
+                <button class="btn btn-primary mr-3">Mettre à jour les données</button>
+            </a>
+            <button class="btn btn-primary mr-3">Attribuer des congés</button>
+            <button class="btn btn-warning mr-3">Signaler une absence</button>
+            <a th:href="@{${employee.id} + '/delete'}">
+                <button class="btn btn-danger mr-3">Supprimer l'employé</button>
+            </a>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <table class="table table-striped">
+                    <tbody>
+                    <tr>
+                        <th scope="row" style="width: 50%; font-weight: bold;">Name:</th>
+                        <td><span th:text="${employee.name}"></span></td>
+                    </tr>
+                    <tr>
+                        <th scope="row" style="width: 50%; font-weight: bold;">Identification:</th>
+                        <td><span th:text="${employee.identification}"></span></td>
+                    </tr>
+                    <tr>
+                        <th scope="row" style="width: 50%; font-weight: bold;">Address:</th>
+                        <td><span th:text="${employee.address}"></span></td>
+                    </tr>
+                    <tr>
+                        <th scope="row" style="width: 50%; font-weight: bold;">Date of Birth:</th>
+                        <td><span th:text="${#dates.format(employee.dateOfBirth, 'yyyy-MM-dd')}"></span></td>
+                    </tr>
+                    <tr>
+                        <th scope="row" style="width: 50%; font-weight: bold;">Mail:</th>
+                        <td><span th:text="${employee.mail}"></span></td>
+                    </tr>
+                    <tr>
+                        <th scope="row" style="width: 50%; font-weight: bold;">Phone:</th>
+                        <td><span th:text="${employee.phone}"></span></td>
+                    </tr>
+                    <tr>
+                        <th scope="row" style="width: 50%; font-weight: bold;">Start of Contract:</th>
+                        <td><span th:text="${#dates.format(employee.startOfContract, 'yyyy-MM-dd')}"></span></td>
+                    </tr>
+                    <tr>
+                        <th scope="row" style="width: 50%; font-weight: bold;">End of Contract:</th>
+                        <td><span th:text="${#dates.format(employee.endOfContract, 'yyyy-MM-dd')}"></span></td>
+                    </tr>
+                    <tr>
+                        <th scope="row" style="width: 50%; font-weight: bold;">Job Title:</th>
+                        <td><span th:text="${employee.jobTitle}"></span></td>
+                    </tr>
+                    <tr>
+                        <th scope="row" style="width: 50%; font-weight: bold;">Wage:</th>
+                        <td><span th:text="${employee.wage}"></span></td>
+                    </tr>
+                    <tr>
+                        <th scope="row" style="width: 50%; font-weight: bold;">Observation:</th>
+                        <td><span th:text="${employee.observation}"></span></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

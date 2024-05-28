@@ -9,6 +9,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
@@ -31,6 +32,7 @@ public class Candidate {
     private String address;
 
     @NotNull
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dateOfBirth;
 
     @NotEmpty
@@ -46,6 +48,7 @@ public class Candidate {
     private int evaluation;
 
     @NotNull
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dateOfInterview;
 
     @NotEmpty

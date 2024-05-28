@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
@@ -29,6 +30,7 @@ public class Employee {
     private String address;
 
     @NotNull
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dateOfBirth;
 
     @NotEmpty
@@ -38,9 +40,11 @@ public class Employee {
     private String phone;
 
     @NotNull
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date startOfContract;
 
     @NotNull
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date endOfContract;
 
     @NotEmpty
