@@ -53,6 +53,12 @@ public class EmployeeController {
         return "employee/update";
     }
 
+    @GetMapping("/{id}/delete")
+    public String deleteEmployee(@PathVariable("id") Long id){
+        employeeService.deleteById(id);
+        return "redirect:/employees";
+    }
+
     @PostMapping()
     public String saveEmployee(@ModelAttribute Employee employee, BindingResult result, Model model) {
         if (result.hasErrors()) {

@@ -45,6 +45,12 @@ public class CandidateController {
         return "candidate/update";
     }
 
+    @GetMapping("/{id}/delete")
+    public String deleteEmployee(@PathVariable("id") Long id){
+        candidateService.deleteById(id);
+        return "redirect:/candidates";
+    }
+
     @PostMapping()
     public String saveEmployee(@ModelAttribute Candidate candidate, BindingResult result, Model model){
         if (result.hasErrors()) {
